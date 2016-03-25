@@ -70,7 +70,7 @@ function get_CD($idCD){
   $query->bindParam(':id', htmlspecialchars($idCD), PDO::PARAM_INT);
   $query->execute();
   $curseur=$query->fetch();
-  $cd = new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
+  $cd = new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
   return $cd;
 }
 
@@ -83,7 +83,7 @@ function get_DVD($idDVD){
   $query->bindParam(':id', htmlspecialchars($idDVD), PDO::PARAM_INT);
   $query->execute();
   $curseur=$query->fetch();
-  $dvd = new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
+  $dvd = new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
   return $dvd;
 }
 
@@ -96,7 +96,7 @@ function get_livre($idLivre){
   $query->bindParam(':id', htmlspecialchars($idLivre), PDO::PARAM_INT);
   $query->execute();
   $curseur=$query->fetch();
-  $livre = new Livre($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['idAuteur'],$curseur['resume'],$curseur['type']);
+  $livre = new Livre($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['idAuteur'],$curseur['resume'],$curseur['type']);
   return $livre;
 }
 
@@ -111,7 +111,7 @@ function get_media($idMedia, $typeMedia){
     $query->bindParam(':id', htmlspecialchars($idMedia), PDO::PARAM_INT);
     $query->execute();
     $curseur=$query->fetch();
-    $Media = new Livre($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['idAuteur'],$curseur['resume'],$curseur['type']);
+    $Media = new Livre($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['idAuteur'],$curseur['resume'],$curseur['type']);
     break;
     case 'DVD':
     include_once('Model/Class/DVD.class.php');
@@ -119,7 +119,7 @@ function get_media($idMedia, $typeMedia){
     $query->bindParam(':id', htmlspecialchars($idMedia), PDO::PARAM_INT);
     $query->execute();
     $curseur=$query->fetch();
-    $Media = new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
+    $Media = new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
     break;
     case 'CD':
     include_once('Model/Class/CD.class.php');
@@ -127,7 +127,7 @@ function get_media($idMedia, $typeMedia){
     $query->bindParam(':id', htmlspecialchars($idMedia), PDO::PARAM_INT);
     $query->execute();
     $curseur=$query->fetch();
-    $Media = new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
+    $Media = new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
     break;
     default://En cas de type incorrect on retourne null
     return null;
