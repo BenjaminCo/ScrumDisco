@@ -42,7 +42,7 @@ function get_allDVD(){
  $query->execute();
  $tabDVD=array();
  while($curseur=$query->fetch()){
-   $tabDVD[]=new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
+   $tabDVD[]=new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
  }
  return $tabDVD;
 }
@@ -269,7 +269,7 @@ function rechercher_media($keyword){
   $query->execute();
   $tabCD=array();
   while($curseur=$query->fetch()){
-    $tabCD[]=new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
+    $tabCD[]=new CD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['nbPistes'],$curseur['idAuteur'],$curseur['idCompositeur'],$curseur['idInterprete'],$curseur['genre']);
   }
 
   $query=$bdd->prepare("SELECT * FROM dvd WHERE titre LIKE :keyword OR idRealisateur=:id;");
@@ -278,7 +278,7 @@ function rechercher_media($keyword){
   $query->execute();
   $tabDVD=array();
   while($curseur=$query->fetch()){
-    $tabDVD[]=new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['idCategorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
+    $tabDVD[]=new DVD($curseur['id'],$curseur['titre'],$curseur['date_parution'],$curseur['categorie'],$curseur['cover'],$curseur['reserve'],$curseur['genre'],$curseur['duree'],$curseur['idRealisateur']);
   }
 
   $tabMedia=array_merge($tabCD,$tabDVD,$tabLivre);
