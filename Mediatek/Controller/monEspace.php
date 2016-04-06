@@ -5,6 +5,6 @@
   include_once('Model/OperationsAdherent.php');
   $tabEmprunts = get_allemprunts($_SESSION['adherent']->getId());
   $tabReservations = get_reservations($_SESSION['adherent']->getId());
-  //$tabReservations = get_reservations(htmlspecialchars($_GET['id']));
+  $tabReservations = get_reservations(htmlspecialchars($_GET['id']));
   include('View/monEspace.php');
 ?>
