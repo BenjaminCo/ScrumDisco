@@ -42,7 +42,10 @@ include('menu.php');?>
 		</div>
 
 		<?php
+		//include('Model/OperationsMedia.php');
+		
 		echo "<div class=\"col-lg-offset-3 col-lg-6\">";
+		//$tabReservations=$get_allmedia();
 		if (!empty($tabReservations)){
 			echo "<table align='center' border='2' >";
 			echo "	<tr><th>Média</th><th>Réservé à partir du</th></tr>" ;
